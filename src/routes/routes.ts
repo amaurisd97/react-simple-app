@@ -4,6 +4,7 @@ import { Route } from '../types/interfaces.m'
 const Lazy1 = lazy(() => import('../01-lazyload/pages/LazyPage1'))
 const Lazy2 = lazy(() => import('../01-lazyload/pages/LazyPage2'))
 const Lazy3 = lazy(() => import('../01-lazyload/pages/LazyPage3'))
+const LazyLayout = lazy(() => import('../01-lazyload/layout/LazyLayout'))
 
 export const routes: Route[] = [
   {
@@ -23,5 +24,11 @@ export const routes: Route[] = [
     path: '/lazy3',
     Component: Lazy3,
     name: 'Lazy-3',
+  },
+  {
+    to: '/lazy4',
+    path: '/lazy4/*',
+    Component: LazyLayout,
+    name: 'Lazy-4',
   },
 ]
