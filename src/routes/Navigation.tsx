@@ -3,8 +3,10 @@ import {
   Routes,
   Route,
   NavLink,
+  Navigate,
 } from 'react-router-dom'
 import logo from '../assets/react.svg'
+import { LazyPage1, LazyPage2, LazyPage3 } from '../01-lazyload/pages'
 
 export const Navigation = () => {
   return (
@@ -21,22 +23,23 @@ export const Navigation = () => {
           </a>
           <ul>
             <li>
-              <NavLink className='a' to='/'>
-                Home
+              <NavLink className='a' to='/lazy1'>
+                Lazy1
               </NavLink>
-              <NavLink className='a' to='/about'>
-                About
+              <NavLink className='a' to='/lazy2'>
+                Lazy2
               </NavLink>
-              <NavLink className='a' to='/users'>
-                Users
+              <NavLink className='a' to='/lazy3'>
+                Lazy3
               </NavLink>
             </li>
           </ul>
         </nav>
         <Routes>
-          <Route path='/' element={<h1>Home</h1>} />
-          <Route path='about' element={<h1> About </h1>} />
-          <Route path='users' element={<h1> Users </h1>} />
+          <Route path='/lazy1' element={<LazyPage1 />} />
+          <Route path='/lazy2' element={<LazyPage2 />} />
+          <Route path='/lazy3' element={<LazyPage3 />} />
+          <Route path='/*' element={<Navigate to='/lazy1' replace />} />
         </Routes>
       </div>
     </Router>
